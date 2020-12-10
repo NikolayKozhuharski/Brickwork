@@ -67,7 +67,18 @@ function getSecondLayer(layer1) {
 }
 function print_layer(layer2) {
   for (let i = 0; i < layer2.length; i++) {
-    console.log(layer2[i].join(" "));
+    let prevBrick = layer2[i][0];
+    let line = "";
+    for (let j = 0; j < layer2[i].length; j++) {
+      if (prevBrick !== layer2[i][j]) {
+        line += "*" + layer2[i][j].toString();
+        prevBrick = layer2[i][j];
+      } else {
+        line += layer2[i][j].toString();
+        prevBrick = layer2[i][j];
+      }
+    }
+    console.log(line);
   }
 }
 
